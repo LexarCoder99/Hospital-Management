@@ -1,0 +1,413 @@
+/* -------------------- Google Fonts -------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* -------------------- Tailwind Directives -------------------- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------- CSS Reset -------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    --sb-track-color: #dddfe0;
+        --sb-thumb-color: #0077c8;
+        --sb-size: 7px;
+}
+
+/* -------------------- Color Variables -------------------- */
+:root {
+    --mainColor-bg: #0077C8;
+    --main-bg: #dddfe0;
+    --text-color: #0f172a;
+    --Subtext-color: #334155;
+    --card-bg: #b8b8c1;
+    --btn-bg: #1d9bef;
+    --btn-hover: #0f7dd9;
+    --link-color: #0077C8;
+    --link-hover-color: #004c8c;
+    --border-color: #1d9bef;
+    --shadow-color: 0 4px 15px rgba(29, 155, 239, 0.4);
+}
+
+.mainbg {
+    background: var(--mainColor-bg);
+}
+
+/* -------------------- Global Styles -------------------- */
+.background {
+    background: var(--main-bg);
+}
+
+/* -------------------- Typography -------------------- */
+.heading,
+h1,
+h2 {
+    font-family: "Playfair Display", serif;
+    color: var(--text-color);
+}
+
+.main-heading {
+    font-family: "Playfair Display", serif;
+    color: var(--mainColor-bg);
+}
+
+.tittle {
+    font-family: "Playfair Display", serif;
+}
+
+.subHeading,
+h3,
+h4,
+h5 {
+    font-family: "Inter", sans-serif;
+    color: var(--Subtext-color);
+}
+
+.para,
+p {
+    font-family: "Manrope", sans-serif;
+    color: var(--Subtext-color);
+}
+
+/* -------------------- Link Styles -------------------- */
+.link {
+    font-family: "Lato", sans-serif;
+    color: var(--link-color);
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 3px;
+    animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.7s both;
+    -webkit-animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.7s both;
+}
+
+.link:hover {
+    color: var(--link-hover-color);
+}
+
+.LinkActive {
+    color: var(--text-color);
+    padding: 0;
+    font-weight: 800;
+    padding-bottom: 3px;
+}
+
+.LinkUnderline::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    bottom: 0;
+    height: 3px;
+    background: var(--border-color);
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.2s linear;
+    overflow: hidden;
+}
+
+.LinkUnderline:hover::after {
+    width: 100%;
+}
+
+/* -------------------- Button Styles -------------------- */
+.btn {
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    background: var(--btn-bg);
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    outline: none;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--btn-hover);
+    color: #e0f7ff;
+    transition: all 0.3s linear;
+    z-index: -10;
+    box-shadow: var(--shadow-color);
+}
+
+.btn:hover::after {
+    bottom: 0;
+}
+
+.btn:focus {
+    box-shadow: 0 0 10px var(--border-color);
+}
+
+.borderFocuse:focus {
+    border: 1.5px solid var(--border-color);
+}
+
+/* -------------------- Page Animation -------------------- */
+.page {
+    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+/* -------------------- Card Styles -------------------- */
+.card {
+    background: #ffffff;
+    border: 1px solid #b8b8c1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* -------------------- Wave Animation -------------------- */
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -10;
+    opacity: 0.8;
+    padding-top: 30px;
+    /* Ensure it's above other content */
+}
+
+/* -------------------- Keyframes -------------------- */
+@keyframes tracking-in-expand-fwd {
+    0% {
+        letter-spacing: -0.5em;
+        transform: translateZ(-700px);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translateZ(0);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes tracking-in-expand-fwd {
+    0% {
+        letter-spacing: -0.5em;
+        transform: translateZ(-700px);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translateZ(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scale-in-center {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes scale-in-center {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+body::-webkit-scrollbar {
+    width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 17px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 17px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    body {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+}
+
+
+
+
+/*  the loader spin animation */
+/* General container for the loader */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Light background to cover the content */
+    z-index: 9999;
+    /* Make sure it's on top */
+}
+
+/* Water flow effect */
+.water-flow {
+    position: relative;
+    width: 120px;
+    height: 30px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wave {
+    position: absolute;
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(90deg, #0077c8, #00a096);
+    animation: waveAnimation 3s infinite ease-in-out;
+}
+
+.wave1 {
+    animation-delay: 0s;
+}
+
+.wave2 {
+    animation-delay: 1s;
+}
+
+.wave3 {
+    animation-delay: 2s;
+}
+
+/* Wave animation to create water flow */
+/* General styling for the loader container */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Light background */
+    z-index: 9999;
+}
+
+/* The rotating loader */
+.loader {
+    animation: rotate 1s infinite;
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+
+/* The before and after pseudo-elements */
+.loader:before,
+.loader:after {
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 20px;
+    width: 20px;
+}
+
+/* Ball 1 animation */
+.loader:before {
+    animation: ball1 1s infinite;
+    background-color: #cb2025;
+    box-shadow: 30px 0 0 #f8b334;
+    margin-bottom: 10px;
+}
+
+/* Ball 2 animation */
+.loader:after {
+    animation: ball2 1s infinite;
+    background-color: #00a096;
+    box-shadow: 30px 0 0 #97bf0d;
+}
+
+/* Rotation animation */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg) scale(0.8);
+    }
+
+    50% {
+        transform: rotate(360deg) scale(1.2);
+    }
+
+    100% {
+        transform: rotate(720deg) scale(0.8);
+    }
+}
+
+/* Ball 1 movement animation */
+@keyframes ball1 {
+    0% {
+        box-shadow: 30px 0 0 #f8b334;
+    }
+
+    50% {
+        box-shadow: 0 0 0 #f8b334;
+        margin-bottom: 0;
+        transform: translate(15px, 15px);
+    }
+
+    100% {
+        box-shadow: 30px 0 0 #f8b334;
+        margin-bottom: 10px;
+    }
+}
+
+/* Ball 2 movement animation */
+@keyframes ball2 {
+    0% {
+        box-shadow: 30px 0 0 #97bf0d;
+    }
+
+    50% {
+        box-shadow: 0 0 0 #97bf0d;
+        margin-top: -20px;
+        transform: translate(15px, 15px);
+    }
+
+    100% {
+        box-shadow: 30px 0 0 #97bf0d;
+        margin-top: 0;
+    }
+}
